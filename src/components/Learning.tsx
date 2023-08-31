@@ -1,4 +1,4 @@
-import React, { useState ,useEffect,useRef} from 'react'
+import  { useState ,useEffect,useRef} from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Container ,Button,Stack, Typography} from '@mui/material'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -18,7 +18,7 @@ const Learning = () => {
   const dispatch = useDispatch()
   const audioRef = useRef(null)
 
-const {loading, words, result, error}  = useSelector((state:{root:StateType})=>state.root)
+const { words, error}  = useSelector((state:{root:StateType})=>state.root)
 
 const [audioSrc, setaudioSrc] = useState<string>("")
 

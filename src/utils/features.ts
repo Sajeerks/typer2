@@ -1,6 +1,6 @@
 import axios from "axios";
 import { generate } from "random-words";
-import _, { mean } from "lodash"
+import _ from "lodash"
 
 
 
@@ -65,8 +65,8 @@ try {
         })
   //       console.log(data)
   //  console.log(data[0].translations[0].text)
-   const recived:FetchedDataType[]= data
-   const arr:WordType[]= data.map((i,idx)=>{
+  //  const recived:FetchedDataType[]= data
+   const arr:WordType[]= data.map((i:any,idx:number)=>{
     const optionsArr:string[] = generateMCQ(words, idx)
 
     return {
@@ -156,7 +156,7 @@ return arr
 
 
 
-    let encodedParams2 = new URLSearchParams();
+    // let encodedParams2 = new URLSearchParams();
     
 
 
@@ -182,7 +182,7 @@ export const fetChAudio =async(text:string,language:LangType)=>{
   else if(language === "es") encodedParams.set("hl", "es-es")
   else if(language === "fr") encodedParams.set("hl", "fr-fr")
 else encodedParams.set("hl", "hi-in")
-encodedParams2 =encodedParams
+// encodedParams2 =encodedParams
 
 //  console.log({keyForSpeech})
   const options = {
@@ -196,17 +196,17 @@ encodedParams2 =encodedParams
     data: encodedParams,
     params:{key:keyForSpeech}
   };
-  const options2 = {
-    method: 'GET',
-    url: `http://api.voicerss.org/?key=${keyForSpeech}&hl=en-us&src=Hello, world!`,
-    // headers: {
-    //   'content-type': 'application/x-www-form-urlencoded',
-    //   // 'X-RapidAPI-Key': rapidApiKey,
-    //   // 'X-RapidAPI-Host': 'voicerss-text-to-speech.p.rapidapi.com'
-    // },
-    // data: encodedParams,
-    // params:{key:keyForSpeech}
-  };
+  // const options2 = {
+  //   method: 'GET',
+  //   url: `http://api.voicerss.org/?key=${keyForSpeech}&hl=en-us&src=Hello, world!`,
+  //   // headers: {
+  //   //   'content-type': 'application/x-www-form-urlencoded',
+  //   //   // 'X-RapidAPI-Key': rapidApiKey,
+  //   //   // 'X-RapidAPI-Host': 'voicerss-text-to-speech.p.rapidapi.com'
+  //   // },
+  //   // data: encodedParams,
+  //   // params:{key:keyForSpeech}
+  // };
 
 
   try {

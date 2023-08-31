@@ -8,7 +8,7 @@ import { Container, FormControl, FormLabel, Typography ,RadioGroup,FormControlLa
 ,Button
 
 } from '@mui/material'
-import React, { useState,useEffect } from 'react'
+import  { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { saveResult } from '../redux/slices'
@@ -24,7 +24,7 @@ const Quiz = () => {
   // console.log({ans})
   // console.log(result)
 
-const {loading, words,result:resultFromState , error}  = useSelector((state:{root:StateType})=>state.root)
+const {words}  = useSelector((state:{root:StateType})=>state.root)
 
 
 const nexthandlerinResult =():void=>{

@@ -1,13 +1,13 @@
 // import { Container, FormControl, FormLabel, Typography } from '@mui/material'
 import { Container, List, Stack, Typography,Button ,ListItem} from '@mui/material'
-import React, { useState } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { clearState } from '../redux/slices'
 import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 
 const Result = () => {
-  const {loading, words:wordsFromstate,result:resultFromState , error}  = useSelector((state:{root:StateType})=>state.root)
+  const {words:wordsFromstate,result:resultFromState }  = useSelector((state:{root:StateType})=>state.root)
    const dispatch = useDispatch()
    const navigate  = useNavigate()
 // const words= [
@@ -58,8 +58,9 @@ const resethandler =()=>{
 
 <List>
 <Typography  m={"1rem 0"} variant="h5">corect ans</Typography>
-  {wordsFromstate.map((i,idx)=>(
-    <ListItem key={idx}>
+  {wordsFromstate.map((i:any,idx)=>(
+    <ListItem key={idx} datatype={i}>
+      
       {wordsFromstate[idx].meaning} 
     </ListItem>
   ))}
